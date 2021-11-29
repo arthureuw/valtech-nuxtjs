@@ -5,6 +5,10 @@
       solo
       label="Search"
     />
+    <v-row>
+      <alphabetical-nav
+      @selectedLetter="goTo($event)"/>
+    </v-row>
     <v-row justify="center" align="center">
       <v-col class="pa-0">
         <v-list v-for="(contact, key) in filteredContacts"
@@ -13,6 +17,7 @@
         >
           <v-list-item
             v-if="!checkLetter(key)"
+            :id="contact.name.last.charAt(0)"
             dense
             disabled
             class="grey lighten-4"
@@ -88,8 +93,8 @@ export default {
       })
     },
     alphabeticalSort(a, b) {
-      if (a.name.last < b.name.last) return -1;
-      if (a.name.last > b.name.last) return 1;
+      if (a.name.last.toUpperCase() < b.name.last.toUpperCase()) return -1;
+      if (a.name.last.toUpperCase() > b.name.last.toUpperCase()) return 1;
       else return 0;
     },
     checkLetter(index) {
@@ -97,6 +102,10 @@ export default {
         return this.filteredContacts[index].name.last.charAt(0) === this.filteredContacts[index - 1].name.last.charAt(0)
       }
       return false
+    },
+    goTo(letter) {
+      console.log(letter)
+      this.$router.push(`/#${letter.toUpperCase()}`)
     }
   }
 }

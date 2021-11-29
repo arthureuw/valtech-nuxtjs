@@ -18,8 +18,9 @@
     </v-toolbar>
     <v-container>
       <v-card-title
-        class="grey lighten-3"
+        class="grey lighten-3 pa-0"
       >
+        <v-img max-height="200" src="https://picsum.photos/2000/200/?blur=4&grayscale">
         <v-avatar
           size="100"
         >
@@ -28,7 +29,8 @@
             :alt="contact.name.first"
           >
         </v-avatar>
-        <p class="ml-3">{{ contact.name.first }} {{ contact.name.last }}</p>
+        <p class="ml-3 text-h4">{{ contact.name.first }} {{ contact.name.last }}</p>
+        </v-img>
       </v-card-title>
       <br>
       <v-card-text>
@@ -36,7 +38,15 @@
           align="center"
           class="grey lighten-3 rounded"
         >
-          <v-col cols="2" lg="1" md="2" sm="2" xs="2"></v-col>
+          <v-col cols="2" lg="1" md="2" sm="2" xs="4">
+            <v-btn
+              icon
+            >
+              <v-icon>
+                mdi-phone-dial
+              </v-icon>
+            </v-btn>
+          </v-col>
           <v-col>
             <div class="subtitle-1">Number</div>
             <div class="blue--text">{{ contact.phone }}</div>
@@ -91,11 +101,10 @@
           </v-col>
           <v-spacer></v-spacer>
           <v-col
-            cols="3"
+            cols="2"
             class="pa-0"
           >
             <v-img
-              contain
               max-height="150"
               src="https://i.postimg.cc/MKVY2LMj/Capture-d-e-cran-2021-11-29-a-15-44-49.png"
             ></v-img>
@@ -105,7 +114,7 @@
           align="center"
           class="grey lighten-3 rounded mt-6"
         >
-          <v-col cols="2" lg="1" md="2" sm="2" xs="4">
+          <v-col cols="2" lg="1" md="2">
             <v-btn
               icon
             >
@@ -114,8 +123,7 @@
               </v-icon>
             </v-btn>
           </v-col>
-          <v-spacer></v-spacer>
-          <v-col cols="10">
+          <v-col>
             <div class="subtitle-1">Anniversary</div>
             <div class="blue--text">{{ contact.registered.date.toUTCString }}</div>
           </v-col>
