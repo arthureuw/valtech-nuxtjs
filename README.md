@@ -1,5 +1,8 @@
 # valtech-nuxtjs
 
+This is a contacts list that look like the IOS application "contact".
+You can try it on mobile !
+
 ## Build Setup
 
 ```bash
